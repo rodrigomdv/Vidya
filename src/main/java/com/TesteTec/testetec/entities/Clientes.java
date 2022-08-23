@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -18,6 +20,15 @@ public class Clientes {
 	private String Cnpj;
 	private String CEP;
 	private String Email;
+	
+	@ManyToMany
+	@JoinColumn(name = "Licenca_id")		
+	private Licenca licenca;
+	
+	public Clientes () {
+		
+	}
+	
 	public long getId() {
 		return id;
 	}

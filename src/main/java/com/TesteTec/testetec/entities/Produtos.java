@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity 
@@ -15,7 +17,11 @@ public class Produtos {
 	private long id;
 	private String name;
 	
-	
+	@OneToMany
+	@JoinColumn(name = "licencas_id")				
+	private Licenca licenca;
+
+		
 	public Produtos() {
 		 
 	}
